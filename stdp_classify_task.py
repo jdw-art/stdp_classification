@@ -30,15 +30,10 @@ from tqdm import tqdm
 import utils.checkpoint
 import utils.meters
 import utils.metrics
-from data.mnist_datasets import MNISTDataset
 from functions.autograd_functions import SpikeFunction
 from functions.plasticity_functions import InvertedOjaWithSoftUpperBound
-from models.network_models import InhibitoryMemoryModel, AutoEncoderWithMemoryModel, PreProcessWithMemoryModel, \
-    SpikingConvNet, STDPClassifyExcInhNet
+from models.network_models import STDPClassifyExcInhNet
 from models.neuron_models import IafPscDelta
-from utils.spkConNetUtils import DoG, preprocess_MNIST
-from utils.utils import compute_average_ssim, gaussian_perturb_image, apply_mask
-# from models.protonet_models import SpikingProtoNet
 from models.spiking_model import SpikingProtoNet, LatencyEncodeNet
 
 # from models.spiking_model_4conv import SpikingProtoNet
