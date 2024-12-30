@@ -248,15 +248,15 @@ class STDPClassifyLayerExcInh(torch.nn.Module):
 
         self.decay_trace = math.exp(-1.0 / tau_trace)
         # 表示脉冲序列和输入层input_layer之间的权重，输入脉冲序列和输入层神经元一对一连接
-        self.input_weight = 0.005 * torch.eye(self.input_size, self.input_size, device="cuda:3")
+        self.input_weight = 0.005 * torch.eye(self.input_size, self.input_size, device="cuda:0")
         # hidden层和input层权重
-        self.hidden_weight = torch.rand(self.output_size, self.input_size, device="cuda:3")
+        self.hidden_weight = torch.rand(self.output_size, self.input_size, device="cuda:0")
         # 兴奋层-抑制层权重, 兴奋神经元和抑制神经元一对一连接
-        self.exc_inh_weight = torch.rand(self.output_size, self.output_size, device="cuda:3")
+        self.exc_inh_weight = torch.rand(self.output_size, self.output_size, device="cuda:0")
         # 抑制层-兴奋层权重，抑制神经元和除对应的兴奋神经元连接
-        self.inh_exc_weight = torch.zeros(self.output_size, self.output_size, device="cuda:3")
+        self.inh_exc_weight = torch.zeros(self.output_size, self.output_size, device="cuda:0")
         # 对焦矩阵掩码
-        self.mask = torch.eye(self.exc_inh_weight.size(-1), device="cuda:3").bool()
+        self.mask = torch.eye(self.exc_inh_weight.size(-1), device="cuda:0").bool()
 
     def forward(self, x: torch.Tensor, train: bool, states: Optional[Tuple[
         List[torch.Tensor], List[torch.Tensor], List[torch.Tensor], List[torch.Tensor], torch.Tensor, torch.Tensor, torch.Tensor]] = None) \

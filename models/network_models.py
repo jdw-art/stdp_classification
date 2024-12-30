@@ -9,26 +9,13 @@ import torch
 import torch.nn.functional
 from torch.nn.parameter import Parameter
 
-from SpykeTorch import snn
-from SpykeTorch import functional as sf
-from SpykeTorch import visualization as vis
-from SpykeTorch import utils
 from layers.classification import LinearClassifyLayer
 from layers.convolution import Conv2DLayer, SpikingConv, SpikingPool
 from layers.dense import DenseLayer, AttentionDenseLayer
 from layers.embedding import EmbeddingLayer
 from layers.encoding import EncodingLayer
-from layers.attention import AttentionLayer, SpatioAttentionLayer
-from layers.reading import ReadingLayer, ReadingLayerReLU
 from layers.stdp_classify_layer import STDPClassifyLayerExcInh
-from layers.writing import WritingLayer, WritingLayerReLU
-from layers.memory import MemoryLayer, InhibitionMemoryLayer, DualInhibitionMemoryLayer, AutoEncoderMemoryLayer, \
-    FeedbackMemoryLayer
 from models.neuron_models import NeuronModel, IafPscDelta
-from functions.autograd_functions import SpikeFunction
-from models.protonet_models import SpikingProtoNet, ProtoNet
-from policies import policy
-from utils.utils import save_tensor_to_file, load_tensor_from_file
 
 # STDP分类
 class STDPClassifyExcInhNet(torch.nn.Module):
